@@ -9,22 +9,33 @@ def fifo(size,pages):
     hit = 0
     for i in range(0,len(pages)):
         if (len(memory)) < 4:
+            
             if len(memory) == 0:
                 memory.append(pages[i])
 
             else:
+                curhit = 0
                 for r in range(0,len(memory)):
                     if memory[r] == pages[i]:
-                        hit += 1
+                        curhit += 1
 
-                    else:
-                        memory.append(pages[i])
+                if curhit == 0:
+                    memory.append(pages[i]) 
+
+                hit += curhit       
 
         else:
-            print(memory)
+            curhit2 = 0
             for j in range(0,len(memory)):
-                x = 10
-
+                if memory[j] == pages[i]:
+                    curhit2 += 1
+            
+            if curhit2 == 0:
+                memory.append(pages[i])
+                memory.pop(0)
+            hit += curhit2
+    print(hit)
+    print(memory)
 
 
 def main():
