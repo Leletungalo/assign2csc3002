@@ -89,7 +89,14 @@ def OPT(size,pages):
                 if curhit == 0:
                     memory.append(pages[i])
 
-                else:
+            else:
+                # cheack for hit
+                curhit = 0
+                for l in range(0,len(memory)):
+                    if memory[l] == pages[i]:
+                        curhit += 1
+
+                if curhit == 0:
                     counters = []
                     con = 0
                     distance = 0
@@ -102,11 +109,12 @@ def OPT(size,pages):
                                 distance += 1
                             else:
                                 break
-                        
+                            
                         print("ljikoj",m)
                         counters.append(distance)
                         distance = 0
                     print(counters)
+                    break
                 hit = curhit
     
 
