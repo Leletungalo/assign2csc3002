@@ -98,9 +98,10 @@ def OPT(size,pages):
                         curElement = memory[r]
                         for x in range(m,len(pages)):
                             print(pages[x])
-                            #if (curElement != pages[x]):
-                            #    distance += 1
-                            #    break
+                            if (curElement != pages[x]):
+                                distance += 1
+                            else:
+                                break
                         
                         print("ljikoj",m)
                         counters.append(distance)
@@ -115,9 +116,9 @@ def main():
     #items = []
     items = [8, 5, 5, 2, 5, 3, 5, 4]
     size = int(argv[1])
-    for i in range(0,size):
-       element = randint(1,9)
-       items.append(element)
+    #for i in range(0,size):
+     #  element = randint(1,9)
+     #  items.append(element)
     # may print 
     #print("FIFO ",fifo(size,items)," page faults.")
     #print ("LRU ",lru(size,items), "page faults.")
